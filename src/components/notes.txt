@@ -1,0 +1,24 @@
+ onFormSubmit(e) {
+    e.preventDefault();
+    console.log(this.state.term);
+  }
+//Cannot read property 'state' of undefined
+
+
+Solutions
+1* using constructor
+
+constructor () {
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+}
+
+2* using arrow func on declare the event handler method
+
+onFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state.term);
+  }
+
+3* in callback gets passed down  into that component using arrow func 
+
+<form onSubmit={(e) => this.onFormSubmit(e)} className="ui form">
